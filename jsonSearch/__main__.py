@@ -53,6 +53,8 @@ class Search(object):
                 answears.extend(cls.moldSearch(documents=req_answear[1], mold=mold, name=req_answear[0]))
             return answears
 
+    def test(stirng: str):
+    	print(string)
 
 
 

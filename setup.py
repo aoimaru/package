@@ -5,7 +5,7 @@ with open("./README.md", mode="r") as file:
 	long_description = file.read()
 
 setuptools.setup(
-	name="SearchEngine for JSON",
+	name="SearchEngineForJSON",
 	version="0.0.1",
 	entry_points={
 		"console_script": [

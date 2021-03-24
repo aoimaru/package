@@ -1,9 +1,0 @@
-README.md
-setup.py
-SearchEngine_for_JSON.egg-info/PKG-INFO
-SearchEngine_for_JSON.egg-info/SOURCES.txt
-SearchEngine_for_JSON.egg-info/dependency_links.txt
-SearchEngine_for_JSON.egg-info/entry_points.txt
-SearchEngine_for_JSON.egg-info/top_level.txt
-jsonSearch/__init__.py
-jsonSearch/searchMain.py

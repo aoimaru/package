@@ -5,8 +5,8 @@ with open("./README.md", mode="r") as file:
 	long_description = file.read()
 
 setuptools.setup(
-	name="SearchEngine for JSON",
-	version="0.0.1",
+	name="SearchEngineForJSON",
+	version="0.0.2",
 	entry_points={
 		"console_script": [
 			"hello=jsonSearch:main"
@@ -14,7 +14,7 @@ setuptools.setup(
 	},
 	author="AoiNakamura",
 	author_email="sample@example.com",
-	description="SearchEngine for JSON",
+	description="SearchEngineForJSON",
 	long_description=long_description,
 	long_description_content_type="text/markdown",
 	url="https://github.com/aoimaru/packagingTutorial",

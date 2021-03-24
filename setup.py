@@ -9,7 +9,9 @@ with open("./README.md", mode="r") as file:
 
 setuptools.setup(
 	name="SearchEngineForJSON",
+
 	version="0.0.5",
+
 	entry_points={
 		"console_script": [
 			"hello=jsonSearch:main"

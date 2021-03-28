@@ -14,6 +14,7 @@ class Search(object):
 		Attributes:
 			None
 	"""
+	
 	@classmethod
 	def moldSearch(cls, documents, mold, name=None):
 		""" SearchEngine for json by mold
@@ -29,29 +30,29 @@ class Search(object):
 			returns:
 				list: 値までの絶対パス(仮称)と値
 		"""
-		ans = [[key, value] for key, value in documents.items() if type(value) is mold]
-		if name:
+		
+		def nameSurgery(targetItems):
 			answears = []
-			for item in ans:
-				answears.append([name+"."+item[0], item[1]])
-		else:
-			answears = ans
-
-		req_docs = [[key, value] for key, value in documents.items() if isinstance(value, dict)]
-
-		if name:
-			req_answears = []
-			for item in req_docs:
-				req_answears.append([name+"."+item[0], item[1]])
-		else:
-			req_answears = req_docs
-
-		if not req_answears:
+			for targetItem in targetItems:
+				answears.append([name+"."+targetItem[0], targetItem[1]])
 			return answears
+
+		# 対象データの下位層に存在する対象のデータ型の取得(keyとvalueを取得(配列として取得[key, value]))
+		targetMoldItems = [[key, value] for key, value in documents.items() if type(value) is mold]
+		
+		targetMoldAnswears = nameSurgery(targetMoldItems) if name else targetMoldItems
+
+        # 対象データの下位層に存在するjson型のデータの取得(keyとvalueを取得(配列として取得[key, value]))
+		targetJsonItems = [[key, value] for key, value in documents.items() if isinstance(value, dict)]
+
+		targetJsonAnswears = nameSurgery(targetJsonItems) if name else targetJsonItems
+
+		if not targetJsonAnswears:
+			return targetMoldAnswears
 		else:
-			for req_answear in req_answears:
-				answears.extend(cls.moldSearch(documents=req_answear[1], mold=mold, name=req_answear[0]))
-			return answears
+			for targetJsonAnswear in targetJsonAnswears:
+				targetMoldAnswears.extend(cls.moldSearch(documents=targetJsonAnswear[1], mold=mold, name=targetJsonAnswear[0]))
+			return targetMoldAnswears
 
 	@staticmethod
 	def test(string: str):

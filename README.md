@@ -7,3 +7,11 @@
 ```bash
 pip install SearchEngineForJSON
 ```
+## ディレクトリ構造
+```
+|--packagingTutorial
+|  |--SearchEngineForJSON
+|  |  |--__init__.py
+|  |  |--searchMain.py
+|  |--setup.py
+```

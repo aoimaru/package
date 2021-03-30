@@ -15,3 +15,10 @@ pip install SearchEngineForJSON
 |  |  |--searchMain.py
 |  |--setup.py
 ```
+
+# Usage
+```
+from SearchEngineForJSON.searchMain import Search
+
+Search.moldSearch(探索したいデータ, 探索したい型) -> [[], []]
+```

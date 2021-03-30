@@ -20,5 +20,5 @@ pip install SearchEngineForJSON
 ```
 from SearchEngineForJSON.searchMain import Search
 
-Search.moldSearch(探索したいデータ, 探索したい型) -> [[], []]
+Search.moldSearch(探索したいデータ, 探索したい型) -> [[key, value], []]
 ```

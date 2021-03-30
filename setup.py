@@ -1,29 +1,22 @@
 
-import setuptools
+from setuptools import setup, find_packages
 from os import path
 
-here = path.abspath(path.dirname(__file__))
+# here = path.abspath(path.dirname(__file__))
 
 with open("./README.md", mode="r") as file:
 	long_description = file.read()
 
-setuptools.setup(
+setup(
 	name="SearchEngineForJSON",
-
-	version="0.0.5",
-
-	# entry_points={
-	# 	"console_script": [
-	# 		"hello=jsonSearch:main"
-	# 	]
-	# },
+	version="0.1.0",
 	author="AoiNakamura",
 	author_email="sample@example.com",
 	description="SearchEngineForJSON",
 	long_description=long_description,
 	long_description_content_type="text/markdown",
 	url="https://github.com/aoimaru/packagingTutorial",
-	packages=setuptools.find_packages(),
+	packages=find_packages(),
 	classifiers=[
         "Programming Language :: Python :: 3",
     ],

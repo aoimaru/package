@@ -7,4 +7,4 @@ memo
 .DS_Store
 __pycache__/
 SearchEngineForJSON.egg-info/
-memo.py
+.idea/

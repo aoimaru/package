@@ -1,5 +1,5 @@
 
-# SearchEngine for JSON
+# SearchEngine for JSON (自作パッケージ公開練習)
 * json形式のデータから指定の型を持つkeyとvalueを再起的に取得します
 
 

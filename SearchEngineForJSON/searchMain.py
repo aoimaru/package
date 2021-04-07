@@ -4,6 +4,7 @@
 	
 	Todo:
 		* Practice
+		* refactoring list and dict structure
 """
 
 class Search(object):

@@ -52,6 +52,7 @@ class Search(object):
 			targetJsonAnswears = nameSurgery(targetJsonItems) if name else targetJsonItems
 
 
+
 		elif isinstance(documents, list):
 			# 対象データの下位層に存在する対象のデータ型の取得(keyとvalueを取得(配列として取得[key, value]))
 			targetMoldItems = [[count, value] for count, value in enumerate(documents) if type(value) is mold]

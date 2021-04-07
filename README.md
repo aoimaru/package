@@ -43,6 +43,42 @@ for item in items:
 ```
 ["name1", "hello"]
 ["name2.name2-2", "world"]
+
+
+data = {
+    "name1": "Nakamura",
+    "name2": {
+        "name2-1": "Aoi",
+        "name2-2": [
+            "listA",
+            "listB",
+            {
+                "listC-1": "listInDict1",
+                "listC-2": "listInDict2",
+                "listC-3": {
+                    "listC-3-1": "hello",
+                    "listC-3-2": "world"
+                }
+            }
+        ]
+    }
+}
+
+items = Search.moldSearch(data, str)
+
+for item in items:
+    print(item)
+
+['name1', 'Nakamura']
+['name2.name2-1', 'Aoi']
+['name2.name2-2.0', 'listA']
+['name2.name2-2.1', 'listB']
+['name2.name2-2.2.listC-1', 'listInDict1']
+['name2.name2-2.2.listC-2', 'listInDict2']
+['name2.name2-2.2.listC-3.listC-3-1', 'hello']
+['name2.name2-2.2.listC-3.listC-3-2', 'world']
+
+
 ```
 
 

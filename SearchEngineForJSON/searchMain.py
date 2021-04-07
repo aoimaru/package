@@ -35,18 +35,38 @@ class Search(object):
 		def nameSurgery(targetItems):
 			answears = []
 			for targetItem in targetItems:
+				if isinstance(targetItem[0], int):
+					targetItem[0] = str(targetItem[0])
 				answears.append([name+"."+targetItem[0], targetItem[1]])
 			return answears
 
-		# 対象データの下位層に存在する対象のデータ型の取得(keyとvalueを取得(配列として取得[key, value]))
-		targetMoldItems = [[key, value] for key, value in documents.items() if type(value) is mold]
-		
-		targetMoldAnswears = nameSurgery(targetMoldItems) if name else targetMoldItems
+		if isinstance(documents, dict):
+			# 対象データの下位層に存在する対象のデータ型の取得(keyとvalueを取得(配列として取得[key, value]))
+			targetMoldItems = [[key, value] for key, value in documents.items() if type(value) is mold]
+			
+			targetMoldAnswears = nameSurgery(targetMoldItems) if name else targetMoldItems
 
-        # 対象データの下位層に存在するjson型のデータの取得(keyとvalueを取得(配列として取得[key, value]))
-		targetJsonItems = [[key, value] for key, value in documents.items() if isinstance(value, dict)]
+	        # 対象データの下位層に存在するjson型のデータの取得(keyとvalueを取得(配列として取得[key, value]))
+			targetJsonItems = [[key, value] for key, value in documents.items() if (isinstance(value, dict) or isinstance(value, list))]
 
-		targetJsonAnswears = nameSurgery(targetJsonItems) if name else targetJsonItems
+
+			targetJsonAnswears = nameSurgery(targetJsonItems) if name else targetJsonItems
+
+
+
+		elif isinstance(documents, list):
+			# 対象データの下位層に存在する対象のデータ型の取得(keyとvalueを取得(配列として取得[key, value]))
+			targetMoldItems = [[count, value] for count, value in enumerate(documents) if type(value) is mold]
+			
+			targetMoldAnswears = nameSurgery(targetMoldItems) if name else targetMoldItems
+
+	        # 対象データの下位層に存在するjson型のデータの取得(keyとvalueを取得(配列として取得[key, value]))
+			targetJsonItems = [[count, value] for count, value in enumerate(documents) if (isinstance(value, dict) or isinstance(value, list))]
+
+			targetJsonAnswears = nameSurgery(targetJsonItems) if name else targetJsonItems
+
+		else:
+			pass
 
 		if not targetJsonAnswears:
 			return targetMoldAnswears

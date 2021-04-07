@@ -43,7 +43,7 @@ class Search(object):
 		
 		targetMoldAnswears = nameSurgery(targetMoldItems) if name else targetMoldItems
 
-        	# 対象データの下位層に存在するjson型のデータの取得(keyとvalueを取得(配列として取得[key, value]))
+        # 対象データの下位層に存在するjson型のデータの取得(keyとvalueを取得(配列として取得[key, value]))
 		targetJsonItems = [[key, value] for key, value in documents.items() if isinstance(value, dict)]
 
 		targetJsonAnswears = nameSurgery(targetJsonItems) if name else targetJsonItems

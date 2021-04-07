@@ -9,7 +9,7 @@ with open("./README.md", mode="r") as file:
 
 setup(
 	name="SearchEngineForJSON",
-	version="0.1.1",
+	version="0.1.2",
 	author="AoiNakamura",
 	author_email="sample@example.com",
 	description="SearchEngineForJSON",

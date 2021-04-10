@@ -42,8 +42,7 @@ items = Search.moldSearch(data, str)
 
 for item in items:
   print(item)
-```
-```
+
 ["name1", "hello"]
 ["name2.name2-2", "world"]
 

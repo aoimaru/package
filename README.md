@@ -2,6 +2,9 @@
 # SearchEngine for JSON (自作パッケージ公開)
 * json形式のデータから指定の型を持つkeyとvalueを再起的に取得します
 
+[![Downloads](https://pepy.tech/badge/searchengineforjson)](https://pepy.tech/project/searchengineforjson)
+[![Downloads](https://pepy.tech/badge/searchengineforjson/month)](https://pepy.tech/project/searchengineforjson)
+[![Downloads](https://pepy.tech/badge/searchengineforjson/week)](https://pepy.tech/project/searchengineforjson)
 
 # install
 ```bash
@@ -39,8 +42,7 @@ items = Search.moldSearch(data, str)
 
 for item in items:
   print(item)
-```
-```
+
 ["name1", "hello"]
 ["name2.name2-2", "world"]
 ```

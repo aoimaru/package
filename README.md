@@ -1,5 +1,5 @@
 
-# SearchEngine for JSON (自作パッケージ公開練習)
+# SearchEngine for JSON (自作パッケージ公開)
 * json形式のデータから指定の型を持つkeyとvalueを再起的に取得します
 
 
@@ -43,8 +43,8 @@ for item in items:
 ```
 ["name1", "hello"]
 ["name2.name2-2", "world"]
-
-
+```
+```
 data = {
     "name1": "Nakamura",
     "name2": {
@@ -68,7 +68,8 @@ items = Search.moldSearch(data, str)
 
 for item in items:
     print(item)
-
+```
+```
 ['name1', 'Nakamura']
 ['name2.name2-1', 'Aoi']
 ['name2.name2-2.0', 'listA']

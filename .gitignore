@@ -8,3 +8,4 @@ memo
 __pycache__/
 SearchEngineForJSON.egg-info/
 .idea/
+.pyc

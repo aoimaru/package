@@ -15,38 +15,21 @@ pip install SearchEngineForJSON
 |--packagingTutorial
 |  |--SearchEngineForJSON
 |  |  |--__init__.py
-|  |  |--searchMain.py
+|  |  |--search.py
 |  |--setup.py
 ```
 
 # Usage
 ```
-from SearchEngineForJSON.searchMain import Search
+import SearchEngineForJSON
 
-Search.moldSearch(探索したいデータ, 探索したい型) -> [[key, value], []]
+SearchEngineForJSON.Search.moldSearch(探索したいデータ, 探索したい型) -> [[key, value], []]
 ```
 
 # Example
 ```
-from SearchEngineForJSON.searchMain import Search
+import SearchEngineForJSON
 
-data = {
-  "name1": "hello",
-  "name2": {
-    "name2-1": 2,
-    "name2-2": "world"
-  }
-}
-
-items = Search.moldSearch(data, str)
-
-for item in items:
-  print(item)
-
-["name1", "hello"]
-["name2.name2-2", "world"]
-```
-```
 data = {
     "name1": "Nakamura",
     "name2": {
@@ -59,14 +42,29 @@ data = {
                 "listC-2": "listInDict2",
                 "listC-3": {
                     "listC-3-1": "hello",
-                    "listC-3-2": "world"
+                    "listC-3-2": "world",
+                    "listC-3-3": [
+                        "Sunday",
+                        "Monday",
+                        "Tuesday"
+                    ],
+                    "listC-3-4": 5,
+                    "listC-3-5": True
                 }
-            }
+            },
+            "listD",
+            "listE"
+        ],
+        "name2-3": "python",
+        "name2-4": [
+            "Docker",
+            "kubernetes",
+            "Docker-compose"
         ]
     }
 }
 
-items = Search.moldSearch(data, str)
+items = SearchEngineForJSON.Search.moldSearch(data, str)
 
 for item in items:
     print(item)
@@ -74,14 +72,21 @@ for item in items:
 ```
 ['name1', 'Nakamura']
 ['name2.name2-1', 'Aoi']
+['name2.name2-3', 'python']
 ['name2.name2-2.0', 'listA']
 ['name2.name2-2.1', 'listB']
+['name2.name2-2.3', 'listD']
+['name2.name2-2.4', 'listE']
 ['name2.name2-2.2.listC-1', 'listInDict1']
 ['name2.name2-2.2.listC-2', 'listInDict2']
 ['name2.name2-2.2.listC-3.listC-3-1', 'hello']
 ['name2.name2-2.2.listC-3.listC-3-2', 'world']
-
-
+['name2.name2-2.2.listC-3.listC-3-3.0', 'Sunday']
+['name2.name2-2.2.listC-3.listC-3-3.1', 'Monday']
+['name2.name2-2.2.listC-3.listC-3-3.2', 'Tuesday']
+['name2.name2-4.0', 'Docker']
+['name2.name2-4.1', 'kubernetes']
+['name2.name2-4.2', 'Docker-compose']
 ```
 
 

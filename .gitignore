@@ -9,3 +9,4 @@ __pycache__/
 SearchEngineForJSON.egg-info/
 .idea/
 .pyc
+.pypirc

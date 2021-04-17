@@ -56,3 +56,7 @@ class Search(object):
 			for seekAnswear in seekAnswears:
 				typeAnswears.extend(cls.typeSearch(documents=seekAnswear[1], typeName=typeName, name=seekAnswear[0]))
 			return typeAnswears
+
+	@staticmethod
+	def hello():
+		print("hello")

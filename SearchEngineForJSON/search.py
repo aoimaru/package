@@ -59,4 +59,4 @@ class Search(object):
 
 	@staticmethod
 	def hello():
-		print("hello")
+		print("hello world")

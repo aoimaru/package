@@ -13,20 +13,20 @@ on:
     paths:
     - "SearchEngineForJSON/**"
   
-jobs:
-  test:
-    runs-on: ubuntu-latest
+# jobs:
+#   test:
+#     runs-on: ubuntu-latest
 
-    steps:
-    - uses: actions/checkout@v2
-    - name: Set up Python
-      uses: actions/setup-python@v2
-      with:
-        python-version: '3.x'
-    - name: Install dependencies
-        run: pip install pytest
-    - name: Test with pytest
-        run: pytest testSearchEngineForJSON/test_search.py
+#     steps:
+#     - uses: actions/checkout@v2
+#     - name: Set up Python
+#       uses: actions/setup-python@v2
+#       with:
+#         python-version: '3.x'
+#     - name: Install dependencies
+#         run: pip install pytest
+#     - name: Test with pytest
+#         run: pytest testSearchEngineForJSON/test_search.py
 
 
   deploy:

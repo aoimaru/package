@@ -1,6 +1,6 @@
 
 # SearchEngine for JSON (自作パッケージ公開)
-* json形式のデータから指定の型を持つkeyとvalueを再起的に取得します
+* json形式のデータから条件に従ったkeyとvalueを再起的に取得します
 
 [![Downloads](https://pepy.tech/badge/searchengineforjson)](https://pepy.tech/project/searchengineforjson)
 [![Downloads](https://pepy.tech/badge/searchengineforjson/month)](https://pepy.tech/project/searchengineforjson)
@@ -10,7 +10,7 @@
 <img alt="Run pytest" src="https://github.com/aoimaru/packagingTutorial/workflows/Upload Python Package/badge.svg"></a>
 # install
 ```bash
-pip install {{package_name}}
+pip install SearchEngineForJSON
 ```
 ## ディレクトリ構造
 ```
@@ -25,7 +25,12 @@ pip install {{package_name}}
 ```
 import SearchEngineForJSON
 
-SearchEngineForJSON.Search.moldSearch(探索したいデータ, 探索したい型) -> [[key, value], []]
+SearchEngineForJSON.Search.typeSearch(探索したいデータ, 探索したい型) -> [[key, value], []]
+SearchEngineForJSON.Search.getAll(探索したいデータ) -> [[key, value], []]
+SearchEngineForJSON.Search.valueSearch(探索したいデータ, 探索したい値) -> [[key, value], []]
+SearchEngineForJSON.Search.typeSearch(探索したいデータ, 探索したい型) -> [[key, value], []]
+SearchEngineForJSON.Search.typeSearch(探索したいデータ, 探索したい型) -> [[key, value], []]
+
 ```
 
 # Example

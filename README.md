@@ -26,12 +26,6 @@ import SearchEngineForJSON
 SearchEngineForJSON.Search.moldSearch(探索したいデータ, 探索したい型) -> [[key, value], []]
 ```
 
-# Author
-```
-{{author}}
-
-[![github](http://www.google.com/s2/favicons?domain=github.com)](https://github.com/aoimaru "github")
-```
 # Example
 ```
 import SearchEngineForJSON

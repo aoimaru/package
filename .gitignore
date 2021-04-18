@@ -3,6 +3,7 @@ tests/
 build/
 dist/
 test.py
+sub_test.py
 memo
 .DS_Store
 __pycache__/
@@ -10,3 +11,5 @@ SearchEngineForJSON.egg-info/
 .idea/
 .pyc
 .pypirc
+
+.pytest_cache/

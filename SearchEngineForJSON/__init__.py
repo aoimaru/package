@@ -1,3 +1,3 @@
 
-from SearchEngineForJSON.search import Search
 
+from SearchEngineForJSON.search import Search

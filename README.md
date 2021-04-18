@@ -6,8 +6,8 @@
 [![Downloads](https://pepy.tech/badge/searchengineforjson/month)](https://pepy.tech/project/searchengineforjson)
 [![Downloads](https://pepy.tech/badge/searchengineforjson/week)](https://pepy.tech/project/searchengineforjson)
 
-https://github.com/aoimaru/packagingTutorial/workflows/python-publish.yml/badge.svg
 
+<img alt="Run pytest" src="https://github.com/aoimaru/packagingTutorial/workflows/Upload Python Package/badge.svg"></a>
 # install
 ```bash
 pip install {{package_name}}

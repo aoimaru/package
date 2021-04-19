@@ -129,7 +129,7 @@ valueSearchAnswear = [
     ['name2->name2-2->list(2)->2.5', 'listInDict6']
 ]
 
-subStringSearchAnswear = [
+subValueSearchAnswear = [
     ['name2->name2-2->list(0)', 'listA'],
     ['name2->name2-2->list(1)', 'listB'],
     ['name2->name2-2->list(3)', 'listD'],
@@ -145,7 +145,7 @@ subStringSearchAnswear = [
     ['name2->name2-2->list(2)->2.5', 'listInDict6']
 ]
 
-startStringSearchAnswear = [
+startValueSearchAnswear = [
     ['name2->name2-2->list(2)->bool(True)', 'listInDict1'],
     ['name2->name2-2->list(2)->int(2)', 'listInDict2'],
     ['name2->name2-2->list(2)->(>)', 'listInDict3'],
@@ -158,12 +158,24 @@ startStringSearchAnswear = [
 ]
 
 
-endStringSearchAnswear = [
+endValueSearchAnswear = [
     ['name2->name2-2->list(2)->(>)hello', 'listInDict6'],
     ['name2->name2-2->list(2)->2.5', 'listInDict6']
 ]
 
+keySearchAnswear = [
+    ['name2->name2-2->list(2)->2.5', 'listInDict6']
+]
 
+subKeySearchAnswear = [
+    ['name2->name2-2->list(2)->float(2.2)->listC-3-1', 'hello'],
+    ['name2->name2-2->list(2)->float(2.2)->listC-3-2', 'world'],
+    ['name2->name2-2->list(2)->float(2.2)->listC-3-3', ['Sunday', 'Monday', 'Tuesday']],
+    ['name2->name2-2->list(2)->float(2.2)->listC-3-4', 5],
+    ['name2->name2-2->list(2)->float(2.2)->listC-3-5', True],
+    ['name2->name2-2->list(2)->float(2.2)->listC-3-6', False],
+    ['name2->name2-2->list(2)->float(2.2)->listC-3-7', None]
+]
 
 class Test(unittest.TestCase):
     def test_typeSearch(self):
@@ -177,18 +189,26 @@ class Test(unittest.TestCase):
         self.assertEqual(valueSearchAnswear, Search.valueSearch(data, "listInDict6"))
         self.assertEqual([], Search.valueSearch(data, "listInDict6gbar@urba@"))
 
-    def test_subStringSearch(self):
-        self.assertEqual(subStringSearchAnswear, Search.subStringSearch(data, "list"))
+    def test_subValueSearch(self):
+        self.assertEqual(subValueSearchAnswear, Search.subValueSearch(data, "list"))
         self.assertEqual([], Search.subStringSearch(data, "lisgpewbu@piub4er"))
 
-    def test_startStringSearch(self):
-        self.assertEqual(startStringSearchAnswear, Search.startStringSearch(data, "listIn"))
-        self.assertEqual([], Search.startStringSearch(data, "gh@reaugaburgbe@ru"))
+    def test_startValueSearch(self):
+        self.assertEqual(startValueSearchAnswear, Search.startValueSearch(data, "listIn"))
+        self.assertEqual([], Search.startValueSearch(data, "gh@reaugaburgbe@ru"))
 
 
-    def test_endStringSearch(self):
-        self.assertEqual(endStringSearchAnswear, Search.endStringSearch(data, "Dict6"))
-        self.assertEqual([], Search.endStringSearch(data, "ga@oubvaourb@iu"))
+    def test_endValueSearch(self):
+        self.assertEqual(endValueSearchAnswear, Search.endValueSearch(data, "Dict6"))
+        self.assertEqual([], Search.endValueSearch(data, "ga@oubvaourb@iu"))
+
+    def test_keySearch(self):
+        self.assertEqual(keySearchAnswear, Search.keySearch(data, "2.5"))
+        self.assertEqual([], Search.keySearch(data, "anva@urav@u@ub"))
+
+    def test_subKeySearch(self):
+        self.assertEqual(subKeySearchAnswear, Search.subKeySearch(data, "stC-3-"))
+        self.assertEqual([], Search.subKeySearch(data, "gns@otgnbs@eoutbjnr@[irn"))
         
 
 if __name__ == "__main__":

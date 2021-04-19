@@ -25,12 +25,15 @@ pip install SearchEngineForJSON
 ```
 import SearchEngineForJSON
 
+
 SearchEngineForJSON.Search.typeSearch(探索したいデータ, 探索したい型) -> [[key, value],...,[]]
 SearchEngineForJSON.Search.getAll(探索したいデータ) -> [[key, value],...,[]]
 SearchEngineForJSON.Search.valueSearch(探索したいデータ, 探索したい値) -> [[key, value],...,[]]
-SearchEngineForJSON.Search.subStringSearch(探索したいデータ, 探索したい値) -> [[key, value],...,[]]
-SearchEngineForJSON.Search.startStringSearch(探索したいデータ, 探索したい値) -> [[key, value],...,[]]
-SearchEngineForJSON.Search.endStringSearch(探索したいデータ, 探索したい値) -> [[key, value],...,[]]
+SearchEngineForJSON.Search.subValueSearch(探索したいデータ, 探索したい値の部分文字列) -> [[key, value],...,[]]
+SearchEngineForJSON.Search.startValueSearch(探索したいデータ, 探索したい値の先頭文字列) -> [[key, value],...,[]]
+SearchEngineForJSON.Search.endValueSearch(探索したいデータ, 探索したい値の末尾文字列) -> [[key, value],...,[]]
+SearchEngineForJSON.Search.keySearch(探索したいデータ, 探索したいキー) -> [[key, value],...,[]]
+SearchEngineForJSON.Search.subKeySearch(探索したいデータ, 探索したいキーの部分文字列) -> [[key, value],...,[]]
 ```
 
 # Example
@@ -175,9 +178,9 @@ valueSearchAnswear = [
 ]
 ```
 ```
-subStringSearchAnswear = SearchEngineForJSON.Search.subStringSearch(data, "list")
+subValueSearchAnswear = SearchEngineForJSON.Search.subValueSearch(data, "list")
 
-subStringSearchAnswear = [
+subValueSearchAnswear = [
     ['name2->name2-2->list(0)', 'listA'],
     ['name2->name2-2->list(1)', 'listB'],
     ['name2->name2-2->list(3)', 'listD'],
@@ -194,9 +197,9 @@ subStringSearchAnswear = [
 ]
 ```
 ```
-startStringSearchAnswear = SearchEngineForJSON.Search.startStringSearch(data, "listIn")
+startValueSearchAnswear = SearchEngineForJSON.Search.startValueSearch(data, "listIn")
 
-startStringSearchAnswear = [
+startValueSearchAnswear = [
     ['name2->name2-2->list(2)->bool(True)', 'listInDict1'],
     ['name2->name2-2->list(2)->int(2)', 'listInDict2'],
     ['name2->name2-2->list(2)->(>)', 'listInDict3'],
@@ -209,11 +212,31 @@ startStringSearchAnswear = [
 ]
 ```
 ```
-endStringSearchAnswear = SearchEngineForJSON.Search.endStringSearch(data, "Dict6")
+endValueSearchAnswear = SearchEngineForJSON.Search.endValueSearch(data, "Dict6")
 
-endStringSearchAnswear = [
+endValueSearchAnswear = [
     ['name2->name2-2->list(2)->(>)hello', 'listInDict6'],
     ['name2->name2-2->list(2)->2.5', 'listInDict6']
 ]
 ```
 
+```
+keySearchAnswear = SearchEngineForJSON.Search.keySearch(data, "2.5")
+
+keySearchAnswear = [
+    ['name2->name2-2->list(2)->2.5', 'listInDict6']
+]
+```
+```
+subKeySearchAnswear = SearchEngineForJSON.Search.subKeySearch(data, "stC-3-")
+
+subKeySearchAnswear = [
+    ['name2->name2-2->list(2)->float(2.2)->listC-3-1', 'hello'],
+    ['name2->name2-2->list(2)->float(2.2)->listC-3-2', 'world'],
+    ['name2->name2-2->list(2)->float(2.2)->listC-3-3', ['Sunday', 'Monday', 'Tuesday']],
+    ['name2->name2-2->list(2)->float(2.2)->listC-3-4', 5],
+    ['name2->name2-2->list(2)->float(2.2)->listC-3-5', True],
+    ['name2->name2-2->list(2)->float(2.2)->listC-3-6', False],
+    ['name2->name2-2->list(2)->float(2.2)->listC-3-7', None]
+]
+```

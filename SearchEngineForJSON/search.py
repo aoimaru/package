@@ -5,6 +5,7 @@
 		* Practice
 		* refactoring list and dict structure: done
 		* Crating Errorhandling for ReclusionError
+		* I have to create startKeySearch and endKeySearch
 """
 
 class Search(object):
@@ -138,7 +139,7 @@ class Search(object):
 			return valueAnswears
 
 	@classmethod
-	def subStringSearch(cls, documents, subStringName, name=None):
+	def subValueSearch(cls, documents, subValueName, name=None):
 		def nameUpdate(nameItems):
 			nameReturns = []
 			for nameItem in nameItems:
@@ -155,10 +156,10 @@ class Search(object):
 			return nameReturns
 
 		if isinstance(documents, dict):
-			valueItems = [[key, value] for key, value in documents.items() if type(value) == str if subStringName in value]
+			valueItems = [[key, value] for key, value in documents.items() if type(value) == str if subValueName in value]
 			seekItems = [[key, value] for key, value in documents.items() if (isinstance(value, dict) or isinstance(value, list))]
 		elif isinstance(documents, list):
-			valueItems = [[list.__name__ + "({})".format(str(key)), value] for key, value in enumerate(documents) if type(value) == str if subStringName in value]
+			valueItems = [[list.__name__ + "({})".format(str(key)), value] for key, value in enumerate(documents) if type(value) == str if subValueName in value]
 			seekItems = [[list.__name__ + "({})".format(str(key)), value] for key, value in enumerate(documents) if (isinstance(value, dict) or isinstance(value, list))]
 		else:
 			pass
@@ -170,11 +171,11 @@ class Search(object):
 			return valueAnswears
 		else:
 			for seekAnswear in seekAnswears:
-				valueAnswears.extend(cls.subStringSearch(documents=seekAnswear[1], subStringName=subStringName, name=seekAnswear[0]))
+				valueAnswears.extend(cls.subValueSearch(documents=seekAnswear[1], subValueName=subValueName, name=seekAnswear[0]))
 			return valueAnswears
 
 	@classmethod
-	def startStringSearch(cls, documents, startStringName, name=None):
+	def startValueSearch(cls, documents, startValueName, name=None):
 		def nameUpdate(nameItems):
 			nameReturns = []
 			for nameItem in nameItems:
@@ -191,10 +192,10 @@ class Search(object):
 			return nameReturns
 
 		if isinstance(documents, dict):
-			valueItems = [[key, value] for key, value in documents.items() if type(value) == str if value.startswith(startStringName)]
+			valueItems = [[key, value] for key, value in documents.items() if type(value) == str if value.startswith(startValueName)]
 			seekItems = [[key, value] for key, value in documents.items() if (isinstance(value, dict) or isinstance(value, list))]
 		elif isinstance(documents, list):
-			valueItems = [[list.__name__ + "({})".format(str(key)), value] for key, value in enumerate(documents) if type(value) == str if value.startswith(startStringName)]
+			valueItems = [[list.__name__ + "({})".format(str(key)), value] for key, value in enumerate(documents) if type(value) == str if value.startswith(startValueName)]
 			seekItems = [[list.__name__ + "({})".format(str(key)), value] for key, value in enumerate(documents) if (isinstance(value, dict) or isinstance(value, list))]
 		else:
 			pass
@@ -206,11 +207,11 @@ class Search(object):
 			return valueAnswears
 		else:
 			for seekAnswear in seekAnswears:
-				valueAnswears.extend(cls.startStringSearch(documents=seekAnswear[1], startStringName=startStringName, name=seekAnswear[0]))
+				valueAnswears.extend(cls.startValueSearch(documents=seekAnswear[1], startValueName=startValueName, name=seekAnswear[0]))
 			return valueAnswears
 
 	@classmethod
-	def endStringSearch(cls, documents, endStringName, name=None):
+	def endValueSearch(cls, documents, endValueName, name=None):
 		def nameUpdate(nameItems):
 			nameReturns = []
 			for nameItem in nameItems:
@@ -227,10 +228,10 @@ class Search(object):
 			return nameReturns
 
 		if isinstance(documents, dict):
-			valueItems = [[key, value] for key, value in documents.items() if type(value) == str if value.endswith(endStringName)]
+			valueItems = [[key, value] for key, value in documents.items() if type(value) == str if value.endswith(endValueName)]
 			seekItems = [[key, value] for key, value in documents.items() if (isinstance(value, dict) or isinstance(value, list))]
 		elif isinstance(documents, list):
-			valueItems = [[list.__name__ + "({})".format(str(key)), value] for key, value in enumerate(documents) if type(value) == str if value.endswith(endStringName)]
+			valueItems = [[list.__name__ + "({})".format(str(key)), value] for key, value in enumerate(documents) if type(value) == str if value.endswith(endValueName)]
 			seekItems = [[list.__name__ + "({})".format(str(key)), value] for key, value in enumerate(documents) if (isinstance(value, dict) or isinstance(value, list))]
 		else:
 			pass
@@ -242,7 +243,79 @@ class Search(object):
 			return valueAnswears
 		else:
 			for seekAnswear in seekAnswears:
-				valueAnswears.extend(cls.endStringSearch(documents=seekAnswear[1], endStringName=endStringName, name=seekAnswear[0]))
+				valueAnswears.extend(cls.endValueSearch(documents=seekAnswear[1], endValueName=endValueName, name=seekAnswear[0]))
+			return valueAnswears
+
+	@classmethod
+	def keySearch(cls, documents, keyName, name=None):
+		def nameUpdate(nameItems):
+			nameReturns = []
+			for nameItem in nameItems:
+				if type(nameItem[0]) == str:
+					if "->" in nameItem[0]:
+						addName = nameItem[0].replace("->", "(>)")
+					else:
+						addName = nameItem[0]
+				else:
+					typeReName = type(nameItem[0]).__name__
+					addName = typeReName + "({})".format(str(nameItem[0]))
+
+				nameReturns.append([name+"->"+addName, nameItem[1]])
+			return nameReturns
+
+		if isinstance(documents, dict):
+			valueItems = [[key, value] for key, value in documents.items() if keyName == key]
+			seekItems = [[key, value] for key, value in documents.items() if (isinstance(value, dict) or isinstance(value, list))]
+		elif isinstance(documents, list):
+			valueItems = [[list.__name__ + "({})".format(str(key)), value] for key, value in enumerate(documents) if keyName == key]
+			seekItems = [[list.__name__ + "({})".format(str(key)), value] for key, value in enumerate(documents) if (isinstance(value, dict) or isinstance(value, list))]
+		else:
+			pass
+
+		valueAnswears = nameUpdate(valueItems) if name else valueItems
+		seekAnswears = nameUpdate(seekItems) if name else seekItems
+
+		if not seekAnswears:
+			return valueAnswears
+		else:
+			for seekAnswear in seekAnswears:
+				valueAnswears.extend(cls.keySearch(documents=seekAnswear[1], keyName=keyName, name=seekAnswear[0]))
+			return valueAnswears
+
+	@classmethod
+	def subKeySearch(cls, documents, subKeyName, name=None):
+		def nameUpdate(nameItems):
+			nameReturns = []
+			for nameItem in nameItems:
+				if type(nameItem[0]) == str:
+					if "->" in nameItem[0]:
+						addName = nameItem[0].replace("->", "(>)")
+					else:
+						addName = nameItem[0]
+				else:
+					typeReName = type(nameItem[0]).__name__
+					addName = typeReName + "({})".format(str(nameItem[0]))
+
+				nameReturns.append([name+"->"+addName, nameItem[1]])
+			return nameReturns
+
+		if isinstance(documents, dict):
+			valueItems = [[key, value] for key, value in documents.items() if type(key) == str if subKeyName in key]
+			seekItems = [[key, value] for key, value in documents.items() if (isinstance(value, dict) or isinstance(value, list))]
+		elif isinstance(documents, list):
+			valueItems = [[list.__name__ + "({})".format(str(key)), value] for key, value in enumerate(documents) if type(key) == str if subKeyName in key]
+			seekItems = [[list.__name__ + "({})".format(str(key)), value] for key, value in enumerate(documents) if (isinstance(value, dict) or isinstance(value, list))]
+		else:
+			pass
+
+		valueAnswears = nameUpdate(valueItems) if name else valueItems
+		seekAnswears = nameUpdate(seekItems) if name else seekItems
+
+		if not seekAnswears:
+			return valueAnswears
+		else:
+			for seekAnswear in seekAnswears:
+				valueAnswears.extend(cls.subKeySearch(documents=seekAnswear[1], subKeyName=subKeyName, name=seekAnswear[0]))
 			return valueAnswears
 
 

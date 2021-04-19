@@ -129,7 +129,7 @@ valueSearchAnswear = [
     ['name2->name2-2->list(2)->2.5', 'listInDict6']
 ]
 
-subStringSearchAnswear = [
+subValueSearchAnswear = [
     ['name2->name2-2->list(0)', 'listA'],
     ['name2->name2-2->list(1)', 'listB'],
     ['name2->name2-2->list(3)', 'listD'],
@@ -145,7 +145,7 @@ subStringSearchAnswear = [
     ['name2->name2-2->list(2)->2.5', 'listInDict6']
 ]
 
-startStringSearchAnswear = [
+startValueSearchAnswear = [
     ['name2->name2-2->list(2)->bool(True)', 'listInDict1'],
     ['name2->name2-2->list(2)->int(2)', 'listInDict2'],
     ['name2->name2-2->list(2)->(>)', 'listInDict3'],
@@ -158,9 +158,23 @@ startStringSearchAnswear = [
 ]
 
 
-endStringSearchAnswear = [
+endValueSearchAnswear = [
     ['name2->name2-2->list(2)->(>)hello', 'listInDict6'],
     ['name2->name2-2->list(2)->2.5', 'listInDict6']
+]
+
+keySearchAnswear = [
+    ['name2->name2-2->list(2)->2.5', 'listInDict6']
+]
+
+subKeySearchAnswear = [
+    ['name2->name2-2->list(2)->float(2.2)->listC-3-1', 'hello'],
+    ['name2->name2-2->list(2)->float(2.2)->listC-3-2', 'world'],
+    ['name2->name2-2->list(2)->float(2.2)->listC-3-3', ['Sunday', 'Monday', 'Tuesday']],
+    ['name2->name2-2->list(2)->float(2.2)->listC-3-4', 5],
+    ['name2->name2-2->list(2)->float(2.2)->listC-3-5', True],
+    ['name2->name2-2->list(2)->float(2.2)->listC-3-6', False],
+    ['name2->name2-2->list(2)->float(2.2)->listC-3-7', None]
 ]
 
 
@@ -177,21 +191,27 @@ def test_valueSearch():
     assert Search.valueSearch(data, "listInDict6") == valueSearchAnswear
     assert Search.valueSearch(data, "listInDict6gbar@urba@") == []
 
-def test_subStringSearch():
-    assert Search.subStringSearch(data, "list") == subStringSearchAnswear
+def test_subValueSearch():
+    assert Search.subValueSearch(data, "list") == subValueSearchAnswear
     assert Search.subStringSearch(data, "lisgpewbu@piub4er") == []
 
-def test_startStringSearch():
-    assert Search.startStringSearch(data, "listIn") == startStringSearchAnswear
-    assert Search.startStringSearch(data, "gh@reaugaburgbe@ru") == []
+def test_startValueSearch():
+    assert Search.startValueSearch(data, "listIn") == startValueSearchAnswear
+    assert Search.startValueSearch(data, "gh@reaugaburgbe@ru") == []
 
 
-def test_endStringSearch():
-    assert Search.endStringSearch(data, "Dict6") == endStringSearchAnswear
-    assert Search.endStringSearch(data, "ga@oubvaourb@iu") == []
+def test_endValueSearch():
+    assert Search.endValueSearch(data, "Dict6") == endValueSearchAnswear
+    assert Search.endValueSearch(data, "ga@oubvaourb@iu") == []
 
 
+def test_keySearch():
+    assert Search.keySearch(data, "2.5") == keySearchAnswear
+    assert Search.keySearch(data, "anva@urav@u@ub") == []
 
+def test_subKeySearch():
+    assert Search.subKeySearch(data,"stC-3-") == subKeySearchAnswear
+    assert Search.subKeySearch(data, "gns@otgnbs@eoutbjnr@[irn") == []
 
 
 

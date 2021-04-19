@@ -191,7 +191,7 @@ class Test(unittest.TestCase):
 
     def test_subValueSearch(self):
         self.assertEqual(subValueSearchAnswear, Search.subValueSearch(data, "list"))
-        self.assertEqual([], Search.subStringSearch(data, "lisgpewbu@piub4er"))
+        self.assertEqual([], Search.subValueSearch(data, "lisgpewbu@piub4er"))
 
     def test_startValueSearch(self):
         self.assertEqual(startValueSearchAnswear, Search.startValueSearch(data, "listIn"))

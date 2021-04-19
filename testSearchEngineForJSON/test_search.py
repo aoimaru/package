@@ -193,7 +193,7 @@ def test_valueSearch():
 
 def test_subValueSearch():
     assert Search.subValueSearch(data, "list") == subValueSearchAnswear
-    assert Search.subStringSearch(data, "lisgpewbu@piub4er") == []
+    assert Search.subValueSearch(data, "lisgpewbu@piub4er") == []
 
 def test_startValueSearch():
     assert Search.startValueSearch(data, "listIn") == startValueSearchAnswear

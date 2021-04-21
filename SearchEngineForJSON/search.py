@@ -323,6 +323,10 @@ class Search(object):
 	def hello():
 		print("hello")
 
+	@staticmethod
+	def world():
+		print("world")
+
 	
 
 

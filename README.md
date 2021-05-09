@@ -22,7 +22,7 @@ pip install SearchEngineForJSON
 ```
 
 # Usage
-```
+```python
 import SearchEngineForJSON
 
 
@@ -37,7 +37,7 @@ SearchEngineForJSON.Search.subKeySearch(探索したいデータ, 探索した�
 ```
 
 # Example
-```
+```python
 import SearchEngineForJSON
 
 data = {
@@ -93,7 +93,7 @@ data = {
 }
 
 ```
-```
+```python
 typeSearchAnswer = SearchEngineForJSON.Search.typeSearch(data, str)
 
 typeSearchAnswer = [
@@ -128,7 +128,7 @@ typeSearchAnswer = [
     ['name2->name2-4->list(2)', 'Docker-compose'],
 ]
 ```
-```
+```python
 getAllAnswear = SearchEngineForJSON.Search.getAll(data)
 
 getAllAnswear = [
@@ -169,7 +169,7 @@ getAllAnswear = [
     ['name2->name2-4->list(2)', 'Docker-compose']
 ]
 ```
-```
+```python
 valueSearchAnswear = SearchEngineForJSON.Search.valueSearch(data, "listInDict6")
 
 valueSearchAnswear = [
@@ -177,7 +177,7 @@ valueSearchAnswear = [
     ['name2->name2-2->list(2)->2.5', 'listInDict6']
 ]
 ```
-```
+```python
 subValueSearchAnswear = SearchEngineForJSON.Search.subValueSearch(data, "list")
 
 subValueSearchAnswear = [
@@ -196,7 +196,7 @@ subValueSearchAnswear = [
     ['name2->name2-2->list(2)->2.5', 'listInDict6']
 ]
 ```
-```
+```python
 startValueSearchAnswear = SearchEngineForJSON.Search.startValueSearch(data, "listIn")
 
 startValueSearchAnswear = [
@@ -211,7 +211,7 @@ startValueSearchAnswear = [
     ['name2->name2-2->list(2)->2.5', 'listInDict6']
 ]
 ```
-```
+```python
 endValueSearchAnswear = SearchEngineForJSON.Search.endValueSearch(data, "Dict6")
 
 endValueSearchAnswear = [
@@ -220,14 +220,14 @@ endValueSearchAnswear = [
 ]
 ```
 
-```
+```python
 keySearchAnswear = SearchEngineForJSON.Search.keySearch(data, "2.5")
 
 keySearchAnswear = [
     ['name2->name2-2->list(2)->2.5', 'listInDict6']
 ]
 ```
-```
+```python
 subKeySearchAnswear = SearchEngineForJSON.Search.subKeySearch(data, "stC-3-")
 
 subKeySearchAnswear = [

@@ -1,5 +1,5 @@
 
-# SearchEngine for JSON (自作パッケージ公開)
+# SearchEngine for JSON 
 * json形式のデータから条件に従ったkeyとvalueを再起的に取得します
 
 [![Downloads](https://pepy.tech/badge/searchengineforjson)](https://pepy.tech/project/searchengineforjson)

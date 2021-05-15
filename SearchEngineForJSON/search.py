@@ -319,9 +319,9 @@ class Search(object):
 			return valueAnswears
 
 
-	@staticmethod
-	def hello():
-		print("hello")
+	# @staticmethod
+	# def hello():
+	# 	print("hello")
 
 	# @staticmethod
 	# def world():
